@@ -8,57 +8,38 @@
 
 <title>IPTV-SPA 2026</title>
 
-
 <style>
 
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap');
 
-
 *{
-
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Orbitron',Arial,sans-serif;
-
 }
 
-
 body{
-
 background:
-
 radial-gradient(circle at 20% 20%,#0ea5e9,transparent 30%),
-
 radial-gradient(circle at 80% 10%,#2563eb,transparent 25%),
-
 linear-gradient(180deg,#020617,#000);
-
 
 color:white;
 
 overflow-x:hidden;
-
 }
 
-
-
-/* ESTRELLAS */
-
 body::before{
-
 content:"";
 
 position:fixed;
 
 width:100%;
-
 height:100%;
 
 background-image:
-
 radial-gradient(#fff 1px,transparent 1px);
-
 
 background-size:45px 45px;
 
@@ -68,125 +49,151 @@ animation:mover 20s linear infinite;
 
 pointer-events:none;
 
+z-index:0;
 }
-
 
 @keyframes mover{
 
 from{
-
 transform:translateY(0);
-
 }
 
 to{
-
 transform:translateY(40px);
-
 }
 
 }
 
 
-
-/* HEADER */
-
+/* =========================
+   BARRA SUPERIOR
+   ========================= */
 
 header{
 
-text-align:center;
+position:sticky;
 
-padding:45px 20px 30px;
+top:10px;
+
+z-index:1000;
+
+width:fit-content;
+
+max-width:calc(100% - 20px);
+
+margin:10px auto 0;
+
+padding:8px 12px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:12px;
+
+background:rgba(2,6,23,.88);
+
+backdrop-filter:blur(18px);
+
+-webkit-backdrop-filter:blur(18px);
+
+border:1px solid rgba(103,232,249,.25);
+
+border-radius:50px;
+
+box-shadow:
+
+0 5px 25px rgba(0,0,0,.35),
+
+0 0 20px rgba(6,182,212,.15);
 
 }
 
 
+/* LOGO */
 
 header img{
 
-width:130px;
+width:42px;
 
-border-radius:30px;
+height:42px;
 
+object-fit:cover;
+
+border-radius:13px;
 
 box-shadow:
 
-0 0 20px #00ffff,
+0 0 10px #00ffff,
 
-0 0 50px #2563eb,
-
-0 0 80px #06b6d4;
-
+0 0 20px #2563eb;
 
 animation:flotar 4s infinite ease-in-out;
 
 }
 
-
-
 @keyframes flotar{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
 
 50%{
 
-transform:translateY(-10px);
+transform:translateY(-4px);
 
 }
 
 }
 
 
+/* TITULO */
 
-h1{
+header h1{
 
-margin-top:20px;
+margin:0;
 
-font-size:45px;
+font-size:20px;
 
-letter-spacing:4px;
+letter-spacing:2px;
+
+white-space:nowrap;
 
 color:#67e8f9;
 
-
 text-shadow:
 
-0 0 10px #00ffff,
+0 0 8px #00ffff,
 
-0 0 30px #2563eb;
+0 0 18px #2563eb;
 
 }
 
 
+/* OCULTAR DESCRIPCION DEL HEADER */
 
 header p{
 
-max-width:750px;
-
-margin:20px auto;
-
-font-family:Arial;
-
-font-size:18px;
-
-line-height:1.5;
-
-color:#dbeafe;
+display:none;
 
 }
 
 
+/* BOTON DESCARGA */
 
-/* BOTONES */
-
-
-.boton{
+header .boton{
 
 display:inline-block;
 
-margin-top:20px;
+margin:0;
 
-padding:14px 38px;
+padding:9px 18px;
 
-border-radius:50px;
+border-radius:30px;
 
 text-decoration:none;
 
@@ -194,8 +201,9 @@ color:white;
 
 font-weight:bold;
 
-font-size:15px;
+font-size:12px;
 
+white-space:nowrap;
 
 background:
 
@@ -211,37 +219,34 @@ linear-gradient(
 
 );
 
-
 box-shadow:
 
-0 0 20px #06b6d4;
-
+0 0 12px #06b6d4;
 
 transition:.4s;
 
 }
 
+header .boton:hover{
 
-
-.boton:hover{
-
-
-transform:scale(1.08);
-
+transform:scale(1.05);
 
 box-shadow:
 
-0 0 45px #00ffff;
-
+0 0 25px #00ffff;
 
 }
 
 
-
-/* SECCIONES */
-
+/* =========================
+   SECCIONES
+   ========================= */
 
 section{
+
+position:relative;
+
+z-index:1;
 
 max-width:1200px;
 
@@ -250,8 +255,6 @@ margin:auto;
 padding:35px 25px;
 
 }
-
-
 
 h2{
 
@@ -263,7 +266,6 @@ margin-bottom:30px;
 
 color:#67e8f9;
 
-
 text-shadow:
 
 0 0 20px #06b6d4;
@@ -271,9 +273,9 @@ text-shadow:
 }
 
 
-
-/* CARACTERISTICAS */
-
+/* =========================
+   CARACTERISTICAS
+   ========================= */
 
 .caracteristicas{
 
@@ -285,9 +287,7 @@ gap:20px;
 
 }
 
-
 .card{
-
 
 background:
 
@@ -301,46 +301,33 @@ rgba(255,255,255,.03)
 
 );
 
-
 border:
 
 1px solid rgba(255,255,255,.25);
 
-
 backdrop-filter:blur(20px);
-
 
 padding:25px 20px;
 
-
 border-radius:25px;
-
 
 text-align:center;
 
-
 transition:.4s;
 
-
 }
-
-
 
 .card:hover{
 
 transform:translateY(-10px);
 
-
 border-color:#00ffff;
-
 
 box-shadow:
 
 0 0 30px #06b6d4;
 
 }
-
-
 
 .card h3{
 
@@ -352,8 +339,6 @@ margin-bottom:10px;
 
 }
 
-
-
 .card p{
 
 font-family:Arial;
@@ -363,9 +348,9 @@ color:#cbd5e1;
 }
 
 
-
-/* PREMIUM */
-
+/* =========================
+   PREMIUM
+   ========================= */
 
 .premium{
 
@@ -376,8 +361,6 @@ grid-template-columns:repeat(4,1fr);
 gap:20px;
 
 }
-
-
 
 .premium-card{
 
@@ -393,7 +376,6 @@ rgba(147,51,234,.20)
 
 );
 
-
 border:1px solid rgba(103,232,249,.35);
 
 border-radius:25px;
@@ -406,8 +388,6 @@ transition:.4s;
 
 }
 
-
-
 .premium-card:hover{
 
 transform:translateY(-10px);
@@ -417,8 +397,6 @@ box-shadow:
 0 0 35px #06b6d4;
 
 }
-
-
 
 .premium-card h3{
 
@@ -430,8 +408,6 @@ margin-bottom:15px;
 
 }
 
-
-
 .premium-card p{
 
 font-family:Arial;
@@ -442,9 +418,10 @@ line-height:1.5;
 
 }
 
- 
-/* ESTADISTICAS */
 
+/* =========================
+   ESTADISTICAS
+   ========================= */
 
 .stats{
 
@@ -458,8 +435,6 @@ margin-top:30px;
 
 }
 
-
-
 .stat-box{
 
 text-align:center;
@@ -468,11 +443,9 @@ padding:25px;
 
 border-radius:25px;
 
-
 background:
 
 rgba(255,255,255,.08);
-
 
 border:
 
@@ -480,22 +453,17 @@ border:
 
 }
 
-
-
 .stat-box h3{
 
 font-size:35px;
 
 color:#00ffff;
 
-
 text-shadow:
 
 0 0 20px #06b6d4;
 
 }
-
-
 
 .stat-box p{
 
@@ -506,9 +474,9 @@ color:#dbeafe;
 }
 
 
-
-/* GALERIA */
-
+/* =========================
+   GALERIA
+   ========================= */
 
 .galeria{
 
@@ -520,8 +488,6 @@ gap:20px;
 
 }
 
-
-
 .galeria img{
 
 width:100%;
@@ -530,22 +496,17 @@ border-radius:20px;
 
 border:2px solid #06b6d4;
 
-
 box-shadow:
 
 0 0 25px rgba(6,182,212,.5);
-
 
 transition:.4s;
 
 }
 
-
-
 .galeria img:hover{
 
 transform:scale(1.05);
-
 
 box-shadow:
 
@@ -554,9 +515,9 @@ box-shadow:
 }
 
 
-
-/* CTA */
-
+/* =========================
+   CTA
+   ========================= */
 
 .cta{
 
@@ -572,28 +533,21 @@ rgba(147,51,234,.3)
 
 );
 
-
 border:
 
 1px solid rgba(255,255,255,.2);
 
-
 border-radius:35px;
-
 
 text-align:center;
 
-
 padding:35px 20px;
-
 
 box-shadow:
 
 0 0 40px rgba(6,182,212,.3);
 
 }
-
-
 
 .cta p{
 
@@ -606,11 +560,15 @@ color:#e0f2fe;
 }
 
 
-
-/* FOOTER */
-
+/* =========================
+   FOOTER
+   ========================= */
 
 footer{
+
+position:relative;
+
+z-index:1;
 
 margin-top:40px;
 
@@ -627,21 +585,18 @@ color:#94a3b8;
 }
 
 
-
-/* RESPONSIVE */
-
+/* =========================
+   RESPONSIVE
+   ========================= */
 
 @media(max-width:900px){
 
-
 .caracteristicas,
-
 .premium{
 
 grid-template-columns:repeat(2,1fr);
 
 }
-
 
 .galeria{
 
@@ -649,82 +604,63 @@ grid-template-columns:1fr;
 
 }
 
-
-
 .stats{
 
 grid-template-columns:1fr;
 
 }
 
-
-
-h1{
-
-font-size:38px;
-
 }
-
-
-}
-
 
 
 @media(max-width:600px){
 
-
 header{
 
-padding:30px 15px;
+top:6px;
+
+max-width:calc(100% - 12px);
+
+padding:6px 8px;
+
+gap:7px;
+
+border-radius:40px;
 
 }
-
 
 header img{
 
-width:105px;
+width:34px;
+
+height:34px;
+
+border-radius:10px;
 
 }
 
+header h1{
 
+font-size:14px;
 
-h1{
-
-font-size:28px;
-
-letter-spacing:2px;
+letter-spacing:1px;
 
 }
 
+header .boton{
 
+padding:8px 12px;
 
-header p{
-
-font-size:16px;
+font-size:10px;
 
 }
-
-
 
 .caracteristicas,
-
 .premium{
 
 grid-template-columns:1fr;
 
 }
-
-
-
-.boton{
-
-padding:12px 28px;
-
-font-size:13px;
-
-}
-
-
 
 h2{
 
@@ -732,19 +668,19 @@ font-size:23px;
 
 }
 
-
-
 .card,
-
 .premium-card{
 
 padding:20px 15px;
 
 }
 
-
-
 }
+
+
+/* =========================
+   AVISO DE DESCARGA
+   ========================= */
 
 </style>
 
@@ -754,43 +690,38 @@ padding:20px 15px;
 <body>
 
 
+<!-- =========================
+     BARRA SUPERIOR
+     ========================= -->
 
 <header>
 
-
 <img src="logo.png" alt="IPTV-SPA">
-
 
 <h1>IPTV-SPA 2026</h1>
 
-
-<p>
-
-La nueva generación IPTV.
-Una experiencia rápida, estable y futurista para disfrutar de tus contenidos favoritos desde cualquier dispositivo compatible.
-
-</p>
-
-
 <a class="boton"
+
 href="https://"
-target="_blank">
+
+target="_blank"
+
+onclick="event.preventDefault(); mostrarAviso();">
 
 ⚡ DESCARGAR APP
 
 </a>
 
-
 </header>
 
 
-
+<!-- =========================
+     CARACTERISTICAS
+     ========================= -->
 
 <section>
 
-
 <h2>🚀 Características</h2>
-
 
 <div class="caracteristicas">
 
@@ -800,11 +731,12 @@ target="_blank">
 <h3>⚡ ULTRA RÁPIDA</h3>
 
 <p>
+
 Carga instantánea y navegación fluida.
+
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -812,11 +744,12 @@ Carga instantánea y navegación fluida.
 <h3>🛡 ESTABLE</h3>
 
 <p>
+
 Diseñada para ofrecer una experiencia fiable.
+
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -824,11 +757,12 @@ Diseñada para ofrecer una experiencia fiable.
 <h3>📱 MULTIDISPOSITIVO</h3>
 
 <p>
+
 Compatible con diferentes dispositivos y pantallas.
+
 </p>
 
 </div>
-
 
 
 <div class="card">
@@ -836,7 +770,9 @@ Compatible con diferentes dispositivos y pantallas.
 <h3>🔒 VPN INTEGRADO</h3>
 
 <p>
+
 Protege tu conexión con VPN integrada para mayor privacidad y seguridad.
+
 </p>
 
 </div>
@@ -844,18 +780,16 @@ Protege tu conexión con VPN integrada para mayor privacidad y seguridad.
 
 </div>
 
-
 </section>
 
 
-
-
+<!-- =========================
+     PREMIUM
+     ========================= -->
 
 <section>
 
-
 <h2>⭐ IPTV-SPA 2026 PREMIUM</h2>
-
 
 <div class="premium">
 
@@ -865,11 +799,12 @@ Protege tu conexión con VPN integrada para mayor privacidad y seguridad.
 <h3>📺 COMPATIBILIDAD</h3>
 
 <p>
+
 Android TV, Smart TV, TV Box, móviles y tablets.
+
 </p>
 
 </div>
-
 
 
 <div class="premium-card">
@@ -877,11 +812,12 @@ Android TV, Smart TV, TV Box, móviles y tablets.
 <h3>🌍 CONEXIÓN GLOBAL</h3>
 
 <p>
+
 Acceso desde cualquier lugar con conexión estable.
+
 </p>
 
 </div>
-
 
 
 <div class="premium-card">
@@ -889,11 +825,12 @@ Acceso desde cualquier lugar con conexión estable.
 <h3>🔄 ACTUALIZACIONES</h3>
 
 <p>
+
 Mejoras continuas para una experiencia moderna.
+
 </p>
 
 </div>
-
 
 
 <div class="premium-card">
@@ -901,14 +838,15 @@ Mejoras continuas para una experiencia moderna.
 <h3>🛡 SEGURIDAD</h3>
 
 <p>
+
 VPN integrada para mayor privacidad y protección.
+
 </p>
 
 </div>
 
 
 </div>
-
 
 
 <div class="stats">
@@ -919,11 +857,12 @@ VPN integrada para mayor privacidad y protección.
 <h3>99.9%</h3>
 
 <p>
+
 Estabilidad
+
 </p>
 
 </div>
-
 
 
 <div class="stat-box">
@@ -931,11 +870,12 @@ Estabilidad
 <h3>24/7</h3>
 
 <p>
+
 Disponible siempre
+
 </p>
 
 </div>
-
 
 
 <div class="stat-box">
@@ -943,7 +883,9 @@ Disponible siempre
 <h3>2026</h3>
 
 <p>
+
 Nueva generación IPTV
+
 </p>
 
 </div>
@@ -951,41 +893,37 @@ Nueva generación IPTV
 
 </div>
 
-
 </section>
+
+
+<!-- =========================
+     GALERIA
+     ========================= -->
 
 <section>
 
-
 <h2>📺 Capturas</h2>
-
 
 <div class="galeria">
 
-
 <img src="captura1.png" alt="Captura IPTV-SPA 1">
-
 
 <img src="captura2.png" alt="Captura IPTV-SPA 2">
 
-
 <img src="captura3.png" alt="Captura IPTV-SPA 3">
 
-
 </div>
-
 
 </section>
 
 
-
-
+<!-- =========================
+     CTA
+     ========================= -->
 
 <section class="cta">
 
-
 <h2>🚀 ENTRA EN EL FUTURO IPTV</h2>
-
 
 <p>
 
@@ -993,29 +931,14 @@ Descarga IPTV-SPA 2026 y disfruta una experiencia rápida, estable y moderna.
 
 </p>
 
-
-
-<a class="boton"
-
-href="https://"
-
-target="_blank">
-
-
-🚀 DESCARGAR APP
-
-
-</a>
-
-
 </section>
 
 
-
-
+<!-- =========================
+     FOOTER
+     ========================= -->
 
 <footer>
-
 
 © 2026 IPTV-SPA.
 
@@ -1025,10 +948,22 @@ Aplicación de reproducción multimedia. No incluye ni distribuye contenido, lis
 
 Proyecto sin ánimo de lucro. Solo para Android TV.
 
-
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+     ========================= -->
+
+<script>
+
+function mostrarAviso(){
+
+alert("Póngase en contacto con su proveedor para obtener la aplicación.");
+
+}
+
+</script>
 
 
 </body>
